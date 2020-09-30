@@ -1,0 +1,63 @@
+version: "3.6"
+
+services:
+    db:
+        image: postgres
+        env_file:
+            - ".env"
+        expose:
+            - "5432"
+        volumes:
+            - ./postgres_data:/var/lib/postgresql/data/
+        networks:
+            - backend_network
+
+    # production container
+    web_api_prod:
+        build: ./api
+        env_file:
+            - ".env"
+        environment: 
+            - ENV=production
+        ports: 
+            - "${PRODUCTION_PORT}:5500"
+        depends_on:
+            - db
+        links:
+            - db:db
+        networks: 
+            - backend_network
+    # development container
+    web_api_dev:
+        build: ./api
+        env_file:
+            - ".env"
+        environment: 
+            - ENV=development
+        ports: 
+            - "5000:5000"
+        depends_on:
+            - db
+        links:
+            - db:db
+        networks: 
+            - backend_network
+    # test container
+    web_api_test:
+        build: ./api
+        env_file:
+            - ".env"
+        environment: 
+            - ENV=testing
+        expose: 
+            - "5555"
+        depends_on:
+            - db
+        links:
+            - db:db
+        networks: 
+            - backend_network
+
+networks:
+    backend_network:
+            driver: bridge

@@ -1,0 +1,9 @@
+postgres_data
+*.pyc
+*__pycache__/
+*vscode/
+
+*dist/
+*build/
+
+.env
