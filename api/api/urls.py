@@ -19,6 +19,9 @@ from rest_framework import routers
 from .views import UserCreateView, UserLoginView, ItemViewSet
 
 
+router = routers.DefaultRouter()
+router.register(r'items', ItemViewSet, basename='items')
+
 urlpatterns = [
     path('', include(router.urls)),
     path('sign-up', UserCreateView.as_view(), name='user-create'),

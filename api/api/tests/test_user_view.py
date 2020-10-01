@@ -94,7 +94,6 @@ class UserTest(test.APITestCase):
 
         self.client.post(self.signup_url, create_data, format='json')
         self.assertEqual(User.objects.count(), 2)
-        
         login_data = {
             'username': 'usertest',
             'password': 'djangousertest'
@@ -120,7 +119,6 @@ class UserTest(test.APITestCase):
         }
 
         self.client.post(self.signup_url, create_data, format='json')
-        
         self.assertEqual(User.objects.count(), 2)
         
         login_data = {
