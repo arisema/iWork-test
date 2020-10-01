@@ -30,15 +30,15 @@ cd iWork-test
 docker-compose up --build web_api_dev
 ```
 Access endpoints at 0.0.0.0:5000
-POST /login {username, password}
-POST /sign-up {username, email, firstname, lastname, password}
+- POST /login {username, password}
+- POST /sign-up {username, email, firstname, lastname, password}
 
 Requires User Authentication
-GET /items
-GET /items/id/
-POST /items/ {name, quantity}
-PUT /items/id {name, qunatity}
-DELETE /items/id/
+- GET /items
+- GET /items/id/
+- POST /items/ {name, quantity}
+- PUT /items/id {name, qunatity}
+- DELETE /items/id/
 
 
 ## Running the tests
