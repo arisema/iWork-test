@@ -17,8 +17,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
 ```bash
 git clone https://github.com/arisema/iWork-test master
 cd iWork-test
@@ -30,6 +28,16 @@ cd iWork-test
 docker-compose up --build web_api_dev
 ```
 Access endpoints at 0.0.0.0:5000
+- POST /login {username, password}
+- POST /sign-up {username, email, firstname, lastname, password}
+
+Requires User Authentication
+- GET /items
+- GET /items/id/
+- POST /items/ {name, quantity}
+- PUT /items/id {name, qunatity}
+- DELETE /items/id/
+
 
 ## Running the tests
 
