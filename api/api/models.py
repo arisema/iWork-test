@@ -20,3 +20,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+class Item(models.Model):
+    name = models.CharField(max_length=100)
+    quantity = models.IntegerField(default=0)
+
+class ItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = [ 'id', 'name', 'quantity' ]
